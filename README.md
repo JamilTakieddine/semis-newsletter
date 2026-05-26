@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Semiconductor Daily Briefing — Newsletter Agent
 
 A scheduled agent that searches the web for semiconductor industry news daily,
@@ -146,3 +147,7 @@ gcloud run jobs executions list --job semis-newsletter --region $REGION
 - **Add more recipients:** Modify `emailer.py` to accept a list and loop `sendmail`
 - **Add a Telegram fallback:** Add `python-telegram-bot` and a second delivery function
 - **Tune coverage:** Edit the `USER_PROMPT` in `newsletter.py` to add/remove topics
+=======
+# semis-newsletter
+Description: (optional) Semiconductor Daily Briefing Newsletter Agent
+>>>>>>> 40286dfe08978468b51635528305ba4c2bf3159f
