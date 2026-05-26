@@ -75,7 +75,7 @@ def generate_newsletter(api_key: str) -> str:
     client = anthropic.Anthropic(api_key=api_key)
 
     response = client.messages.create(
-        model="claude-haiku-4-5-20251001",
+        model="claude-sonnet-4-6",
         max_tokens=8096,  # max context length to allow for long HTML output after searches
         system=SYSTEM_PROMPT,
         tools=[
