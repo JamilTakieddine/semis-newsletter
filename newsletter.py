@@ -22,6 +22,7 @@ When generating the newsletter:
 
 USER_PROMPT = f"""Today is {date.today().strftime("%B %d, %Y")}.
 
+PRIMARY SOURCES: Focus your search on Trendforce, ZDnet, EE Times, SemiAnalysis, and Digitimes for Sections 1 (Semiconductor Industry News) and 3 (Technology & Process Nodes). For Section 2 (Geopolitics & Trade), prioritize general media outlets.
 Search the web for the latest semiconductor industry news from the past 24 hours and generate a daily briefing email in HTML format.
 
 START WITH:
@@ -31,21 +32,21 @@ START WITH:
 
 Cover these 3 areas:
 1. Semiconductor Industry News & Market Impact
-Search for overnight news only — stories published in the last 24 hours. This is a daily newsletter;
-do not repeat macro themes or well-known background context that hasn't changed. Focus on what is new today.
+Search for overnight news only — stories published in the last 24 hours. Prioritize Trendforce, ZDnet, EE Times, SemiAnalysis, and Digitimes.
+This is a daily newsletter; do not repeat macro themes or well-known background context that hasn't changed. Focus on what is new today.
 STRICT: Every story must have been published within the last 24 hours. Before including any item,
 verify its publication date. Discard anything older.
 Cover these segments when relevant: model makers, semi-cap equipment, GPU/CPU/ASICs,
 testers, OSATs, foundries, memory (include DRAM/NAND spot/contract price moves if reported today),
 fabless houses, supply chain.
 Select 3-5 stories maximum — only the most market-moving items. Skip anything routine or unchanged.
-STRICT: For each story, lead with the market impact and cite the source in parentheses e.g. (WSJ), (Reuters),
-(Bloomberg), (Nikkei), (The Information). Only add a readthrough if there is a genuine cross-company
+STRICT: For each story, lead with the market impact and cite the source in parentheses e.g. (SemiAnalysis), (Trendforce),
+(Digitimes), (EE Times), (ZDnet). Only add a readthrough if there is a genuine cross-company
 or supply chain implication — keep it to 2-3 sentences max. Do not force a readthrough where none exists.
 2. Geopolitics & Trade — export controls, supply chain shifts, government subsidies, CHIPS Act updates 
 STRICT: Cite the source in parentheses for every item e.g. (WSJ), (Reuters), (Bloomberg), (FT), (SCMP).
 3. Technology & Process Nodes — new node announcements, chiplet architectures, packaging innovations, EDA tools
-STRICT: Cite the source in parentheses for every item e.g. (WSJ), (Reuters), (Bloomberg), (IEEE), (AnandTech).
+STRICT: Cite the source in parentheses for every item e.g. (EE Times), (SemiAnalysis), (Trendforce), (Digitimes), (AnandTech).
 
 END WITH:
 - Biggest Winners and Losers (stock movers since last night)
@@ -82,7 +83,7 @@ def generate_newsletter(api_key: str) -> str:
             {
                 "type": "web_search_20250305",
                 "name": "web_search",
-                "max_uses": 6,  # up to 6 searches per run — covers all 4 sections
+                "max_uses": 8,  # up to 6 searches per run — covers all 4 sections
             }
         ],
         messages=[
